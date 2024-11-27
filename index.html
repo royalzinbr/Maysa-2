@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Fujão</title>
+
+    <audio id="background-music" autoplay loop>
+        <source src="./Sparks.mp3" type="audio/mp3">
+        <source src="./Sparks.mp3" type="audio/ogg">
+      </audio>
+      
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(./coldplay.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #TEXTO {
+            color: white;
+            font-size: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #meme {
+            font-size: 100px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .botao {
+            padding: 10px 20px;
+            font-size: 19px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 600px) {
+            #TEXTO {
+                font-size: 20px;
+            }
+            #meme {
+                font-size: 50px;
+                margin-bottom: 10px;
+            }
+            .botao {
+                padding: 8px 16px;
+                font-size: 14px;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p id="TEXTO">Menina do EHS, aceita sair comigo?</p>
+    <div id="meme"><img src="./DOG.png" alt="bob" width="160"></div>
+    <button class="botao" id="botaoSim">Sim</button>
+    <button class="botao" id="botaoNao">Não</button>
+
+    <script>
+        document.getElementById('botaoSim').addEventListener('click', function() {
+            document.getElementById('meme').innerHTML = '<img src="./Macaquinho.png" alt="descrição da imagem" width="160" height="160">';
+        });
+
+        document.getElementById('botaoNao').addEventListener('click', function() {
+            const button = document.getElementById('botaoNao');
+            const randomX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
